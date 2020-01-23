@@ -1,5 +1,6 @@
 package com.mkyong;
 
+import com.mkyong.model.Sac;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,12 @@ public class StartApplication implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(StartApplication.class);
 
-    @Autowired
+   /* @Autowired
     private BookRepository repository;
+    */
+
+    @Autowired
+    private SacRepository repository;
 
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);
@@ -24,7 +29,13 @@ public class StartApplication implements CommandLineRunner {
 
         log.info("StartApplication...");
 
-        repository.save(new Book("Java"));
+        repository.save(new Sac("Dorsa", 17.4));
+        repository.save(new Sac("kousha", 185));
+        repository.save(new Sac("Mohammad", 222));
+
+        repository.findByNameLike("% D %");
+
+       /* repository.save(new Book("Java"));
         repository.save(new Book("Node"));
         repository.save(new Book("Python"));
 
@@ -40,6 +51,8 @@ public class StartApplication implements CommandLineRunner {
 
         repository.findByNameLike("%a");
 
+
+        */
     }
 
 }

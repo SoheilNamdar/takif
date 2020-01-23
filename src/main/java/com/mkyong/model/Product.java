@@ -4,21 +4,20 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Product {
+abstract class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "price")
-    private double value;
+    private final double value ;
 
 
     public Product(double baseValue) {
         value = baseValue;
     }
 
-    public Product() {
-    }
+    public Product() { value = 0.0; }
 
     public Long getId() {
         return id;
@@ -34,8 +33,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "valeur=" + value +
-                '}';
+        return Double.toString(prix());
     }
 }
