@@ -3,17 +3,15 @@ package com.mkyong.model;
 import javax.persistence.*;
 
 @Entity
-public class ProductSacMecanismeAccessoire {
+public class SacMecanismeAccessoire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
-    private Sac sacTakif;
+    private Mecanisme sacMecanisme;
     @ManyToOne
-    private Mecanisme mecZananeh;
-    @ManyToOne
-    private Accessoire accBandeKif;
-
+    private Accessoire sacAccessoire;
 }
+

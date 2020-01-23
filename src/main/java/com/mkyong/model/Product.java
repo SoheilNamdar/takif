@@ -1,7 +1,5 @@
 package com.mkyong.model;
 
-import com.mkyong.entity.TermStudentCorse;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,13 +9,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double valeur;
+    @Column(name = "price")
+    private double value;
 
-    @OneToMany(mappedBy = "sacSara")
-    private List<ProductSacMecanismeAccessoire> productSacMecanismeAccessoire;
 
     public Product(double baseValue) {
-        valeur = baseValue;
+        value = baseValue;
     }
 
     public Product() {
@@ -27,18 +24,18 @@ public class Product {
         return id;
     }
 
-    public double getValeur() {
-        return valeur;
+    public double getValue() {
+        return value;
     }
 
     public double prix() {
-        return valeur;
+        return value;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "valeur=" + valeur +
+                "valeur=" + value +
                 '}';
     }
 }

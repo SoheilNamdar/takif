@@ -20,10 +20,10 @@ public class Sac extends Product {
     @Column(name = "accessoire")
     private ArrayList<Accessoire> accessoires;
 
-    @OneToMany(mappedBy = "sacSara")
+    @OneToMany(mappedBy = "sacMecanisme")
     private List<Mecanisme> mecanisme;
 
-    @OneToMany(mappedBy = "sacSara")
+    @OneToMany(mappedBy = "sacAccessoire")
     private List<Accessoire> accessoire;
 
     public Sac(String unNom, double baseValue) {
